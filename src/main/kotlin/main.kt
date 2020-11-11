@@ -35,7 +35,7 @@ fun main() = Window {
                     TextField(
                             textStyle = TextStyle(
                                     color = Color.White,
-                                    fontSize = 13.sp
+                                    fontSize = 12.sp
                             ),
                             modifier = Modifier.weight(1f),
                             maxLines = 1,
