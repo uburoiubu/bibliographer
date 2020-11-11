@@ -7,7 +7,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 
 fun main() = Window {
-    var text by remember { mutableStateOf("Hello, World!") }
+    var text by remember { mutableStateOf("Say hello!") }
 
     MaterialTheme(
         colors = MaterialTheme.colors.copy(
@@ -18,7 +18,11 @@ fun main() = Window {
         )
     ) {
         Scaffold {
-
+            Button(onClick = {
+                text = "Hello user"
+            }) {
+                Text(text)
+            }
         }
     }
 }
