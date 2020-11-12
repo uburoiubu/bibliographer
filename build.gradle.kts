@@ -14,6 +14,9 @@ repositories {
 
 dependencies {
     implementation(compose.desktop.currentOs)
+    implementation("io.ktor:ktor-client-core:1.4.0")
+    implementation("io.ktor:ktor-client-cio:1.4.0")
+    implementation("io.ktor:ktor-client-serialization-jvm:1.4.0")
 }
 
 compose.desktop {
