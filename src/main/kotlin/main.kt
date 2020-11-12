@@ -1,13 +1,11 @@
 import androidx.compose.desktop.Window
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
@@ -16,7 +14,7 @@ import androidx.compose.ui.unit.sp
 
 fun main() = Window {
 
-    var text by remember { mutableStateOf("Please enter journal name") }
+    var query by remember { mutableStateOf("") }
 
     MaterialTheme(
         colors = MaterialTheme.colors.copy(
@@ -31,7 +29,8 @@ fun main() = Window {
                     backgroundColor = Color(49,49,49),
                     elevation = 3.dp
             ) {
-                Row {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(text = "Your search query: ", color = Color.White, fontSize = 12.sp)
                     TextField(
                             textStyle = TextStyle(
                                     color = Color.White,
@@ -39,8 +38,8 @@ fun main() = Window {
                             ),
                             modifier = Modifier.weight(1f),
                             maxLines = 1,
-                            onValueChange = { text = it },
-                            value = text
+                            onValueChange = { query = it },
+                            value = query
                     )
                 }
             }
