@@ -2,7 +2,8 @@ package remote
 
 import kotlinx.serialization.Serializable
 
+
 @Serializable
-data class Response(
-    val txt: String
+data class GetJournalsResponse(
+    val status: String
 )
