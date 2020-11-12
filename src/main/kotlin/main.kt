@@ -21,11 +21,7 @@ import io.ktor.client.features.json.serializer.*
 import io.ktor.client.request.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.encodeToJsonElement
-import kotlinx.serialization.parse
+import remote.GetJournalsResponse
 
 val client = HttpClient(CIO) {
     install(JsonFeature) {
@@ -84,11 +80,14 @@ fun main() = Window {
 }
 
 suspend fun search() : String {
-    val response = client.get<String>("http://api.crossref.org/journals")
-    val format = Json {
-        prettyPrint = true
-    }
-    val result = format.parseToJsonElement(response)
+    val response = client.get<GetJournalsResponse>("http://api.crossref.org/journals")
+//    val result = Json.decodeFromString<GetJournalsResponse>(response)
+//    val format = Json {
+//        prettyPrint = true
+//    }
+//    //val result = format.parseToJsonElement(response)
+//
+//    //return format.encodeToString(result)
 
-    return format.encodeToString(result)
+    return response.toString()
 }
